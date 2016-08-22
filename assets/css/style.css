@@ -1,3 +1,6 @@
+header {
+	padding-top: 20px;
+}
 #current-word {
 	letter-spacing: 10px;
 }
@@ -20,6 +23,7 @@ p {
 	animation: 8s fadeIn;
 	animation-fill-mode: forwards;
 	visibility: hidden;
+	padding-bottom: 200px;
 }
 @keyframes fadeIn {
   0% {
