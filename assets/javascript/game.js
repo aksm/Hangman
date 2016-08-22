@@ -10,6 +10,7 @@ var game = {
 	word_guess: [],
 	blank_counter: 0,
 	letter_counter: 0,
+	audio: false,
 
 	//div elements
 	letters: document.getElementById("letters"),
@@ -35,10 +36,15 @@ var game = {
 		this.guess_count.innerHTML = this.guesses;
 	},
 
+	playAudio: function() {
+		if(!this.audio) {
+			this.audio = new Audio("assets/audio/reaper.mp3");
+			this.audio.play();			
+		}
+	},
+
 	guess: function() {
-		if(event.keyCode < 65 || event.keyCode > 90) {
-		alert("Please pick letters only.");
-		} else if (event.keyCode > 64 || event.keyCode < 91){
+		if (event.keyCode > 64 || event.keyCode < 91){
 			this.letter = String.fromCharCode(event.keyCode);
 			this.letters.innerHTML = this.letters.innerHTML + this.letter;
 			this.current_word.innerHTML = "";
@@ -67,7 +73,9 @@ var game = {
 			if(this.blank_counter == 0) {
 				this.wins++;
 				this.win_count.innerHTML = this.wins;
-				this.newWord();
+				this.playAudio();
+				var x = this;
+				setTimeout(function(){x.newWord()}, 5000);
 			}
 		}
 	}
