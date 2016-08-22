@@ -28,6 +28,7 @@ var game = {
 		this.current_word.innerHTML = "";
 		this.letters.innerHTML = "";
 		this.word_guess = [];
+		this.letters_a = [];
 		this.guesses = 13;
 		this.hangman.src = "assets/images/hangman"+this.guesses.toString()+".gif";
 		for(i = 0; i < this.word.length; i++) {
