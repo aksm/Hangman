@@ -7,10 +7,12 @@ var game = {
 	guesses: 13,
 	wins: 0,
 	letter: "",
+	letters_a: [],
 	word_guess: [],
 	blank_counter: 0,
 	letter_counter: 0,
 	audio: false,
+	guessed: true,
 
 	//div elements
 	letters: document.getElementById("letters"),
@@ -44,20 +46,26 @@ var game = {
 	},
 
 	guess: function() {
-		if (event.keyCode > 64 || event.keyCode < 91){
+		if (event.keyCode > 64 && event.keyCode < 91){
 			this.letter = String.fromCharCode(event.keyCode);
-			this.letters.innerHTML = this.letters.innerHTML + this.letter;
+			this.guessed = true;
+			if(jQuery.inArray(this.letter,this.letters_a) === -1) {
+				this.letters_a.push(this.letter);
+				this.guessed = false;
+			}
+			
+			this.letters.innerHTML = this.letters_a;
 			this.current_word.innerHTML = "";
 			this.letter_counter = 0;
 			for(i = 0; i < this.word.length; i++) {
-				if(this.letter == this.word[i]) {
+				if(this.letter == this.word[i] && this.guessed == false) {
 					this.word_guess[i] = this.letter;
 					this.letter_counter++;
 					this.blank_counter--;
 				}
 				this.current_word.innerHTML = this.current_word.innerHTML + this.word_guess[i];
 			}
-			if(this.letter_counter == 0 && this.guesses > 0) {
+			if(this.letter_counter == 0 && this.guesses > 0 && this.guessed == false) {
 				this.guesses--;
 				this.guess_count.innerHTML = this.guesses;
 				this.hangman.src = "assets/images/hangman"+this.guesses.toString()+".gif";
