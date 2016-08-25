@@ -24,14 +24,21 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
+	<!-- Header image -->
 	<header class="header container-fluid">
 		<img class="img-responsive center-block" src="assets/images/hangmanheader.gif" alt="Hangman">
 	</header>
+
+	<!-- Container for gameplay -->
 	<div class="container main-container container-fluid">
 		<main class="row">
+			<!-- Container for hangman image -->
 			<section class="col-md-4 col-md-offset-2 m-x-auto" id="visuals">
-				<image class="img-responsive center-block" id="hangman" src="assets/images/hangman13.gif">
+				<!-- Initial hangman gif -->
+				<image class="img-responsive center-block" id="hangman" src="assets/images/hangman13.gif" alt="Christopher Walken and Will Ferrell">
 			</section>
+
+			<!-- Container for text blocks -->
 			<section class="col-md-4 m-x-auto text-center" id="gameplay">
 				<div class="game-section">
 					<p>PRESS ANY KEY TO GET STARTED!</p>
@@ -55,7 +62,7 @@
 			</section>
 		</main>
 	</div>
-	<!-- load game script -->
+	<!-- Load game script -->
 	<script src="assets/javascript/game.js"></script>
 </body>
 </html>

@@ -19,6 +19,8 @@ p {
 .m-a-0 {
 	margin: 0 !important;
 }
+
+/*Fadein delay for header loading*/
 .main-container {
 	animation: 8s fadeIn;
 	animation-fill-mode: forwards;
