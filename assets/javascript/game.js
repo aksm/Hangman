@@ -50,7 +50,7 @@ var game = {
 	},
 
 	// Capture key events and run thru game logic
-	guess: function() {
+	guess: function(event) {
 		// Check if key is letter, set variable, and reset guess boolean
 		if (event.keyCode > 64 && event.keyCode < 91){
 			this.letter = String.fromCharCode(event.keyCode);
@@ -103,5 +103,5 @@ var game = {
 // Function calls
 game.newWord();
 document.onkeyup = function(event) {
-	game.guess();
+	game.guess(event);
 }
