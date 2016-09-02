@@ -39,13 +39,15 @@ var game = {
 		}
 
 		this.guess_count.innerHTML = this.guesses;
+		console.log(this.word);
 	},
 
 	// Create audio object and play if not already playing
 	playAudio: function() {
-		if(!this.audio) {
+		console.log(this.audio.paused);
+		if(!this.audio || this.audio.paused == true) {
 			this.audio = new Audio("assets/audio/reaper.mp3");
-			this.audio.play();			
+			this.audio.play();
 		}
 	},
 
@@ -84,17 +86,14 @@ var game = {
 				this.hangman.src = "assets/images/hangman"+this.guesses.toString()+".gif";
 				this.current_word.innerHTML = this.word;
 
-				//Timeout scope workaround
-				var x = this;
-				setTimeout(function(){x.newWord()}, 5000);
+				setTimeout(function(){this.newWord()}.bind(this), 5000);
 			}
 			// Logic for game win
 			if(this.blank_counter == 0) {
 				this.wins++;
 				this.win_count.innerHTML = this.wins;
 				this.playAudio();
-				var x = this;
-				setTimeout(function(){x.newWord()}, 5000);
+				setTimeout(function(){this.newWord()}.bind(this), 5000);
 			}
 		}
 	}
