@@ -86,7 +86,7 @@ var game = {
 				this.current_word.innerHTML = this.current_word.innerHTML + this.word_guess[i];
 			}
 			// Logic for wrong guesses
-			if(this.letter_counter == 0 && this.guesses > 0 && this.guessed == false) {
+			if(this.letter_counter == 0 && this.guesses > 0 && this.guessed == false && this.win_state == false) {
 				this.guesses--;
 				this.guess_count.innerHTML = this.guesses;
 				this.hangman.src = "assets/images/hangman"+this.guesses.toString()+".gif";
