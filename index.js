@@ -9,6 +9,7 @@ app.use("/", express.static(path.join(__dirname, "public")));
 app.get("/", function(req, res) {
   res.sendFile("index.html");
 });
+
 app.get("/word", function(req, res) {
   const word = randomWord();
   console.log(word);
