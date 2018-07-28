@@ -1,0 +1,12 @@
+{
+  "name": "Hangman",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:aksm/Hangman.git",
+  "author": "<albert.min@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3",
+    "random-word": "^2.0.0"
+  }
+}
